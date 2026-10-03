@@ -7,11 +7,7 @@ __pycache__/
 .env
 
 # Data and model caches
-data/*.tsv
-data/*.csv
-!data/README.md
+*.tsv
+*.csv
 .cache/
 huggingface/
-
-# Keep intentional result figures, ignore common scratch files
-results/*.tmp

@@ -36,11 +36,3 @@ def tokenize_with_offsets(
         "tokens": tokenizer.convert_ids_to_tokens(encoded["input_ids"]),
         "offsets": [tuple(pair) for pair in encoded["offset_mapping"]],
     }
-
-
-def token_boundary_positions(offsets: list[tuple[int, int]]) -> set[int]:
-    """Return internal character positions where a token starts.
-
-    Position 0 is excluded because it is trivially the beginning of the word.
-    """
-    return {start for start, _ in offsets if start > 0}
