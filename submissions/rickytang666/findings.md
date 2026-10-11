@@ -11,3 +11,7 @@ See `alignment.png`: BERT aligns 69% of concatenative words but only 19% of rewr
 ## 3. One limitation
 
 The metric only counts an exact cut at the boundary, so near misses like `l | az | ily` score the same as a totally random split. For rewritten words it's not even clear where the "right" cut is, since `laz | ily` is arguably just as reasonable as `lazi | ly`.
+
+## Bonus: dropping single-token words
+
+A single-token word can never align, since its only token starts at position 0. Dropping those words barely moves anything: BERT goes from 69% vs 19% to 71% vs 20%, and GPT-2 goes from 62% vs 31% to 62% vs 32%. Single-token words are rare (47 of BERT's 1,000 words, 5 of GPT-2's), so the gap comes from multi-token words cut in the wrong place, not from whole-word tokens.
