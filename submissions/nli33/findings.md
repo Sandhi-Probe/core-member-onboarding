@@ -19,3 +19,39 @@ For both tokenizers, the alignment rate for `concatenative` is much higher than 
 The original question is "do tokenizers split words at the right place less often when adding a suffix changes the spelling".
 
 I think "at the right place“ is a subjective thing that we've not fully defined yet. At this point we haven't shown that splitting words at the morpheme is necessarily more correct, or that NOT splitting words at the morpheme leads to incorrectness downstream, etc.
+
+## optional observations
+
+### single-token words
+
+`bert` tokenizes more words into single-tokens than `gpt2`. 
+
+Also, more words in `rewritten` are single-token words than in `concatenative`. 
+
+The general trend remains the same. as a sanity check, n_tokens goes up for each category since one-token words were removed, increasing the mean.
+
+### Extra tokenizer
+
+Qwen2.5-0.5b's tokenizer was added. The same patterns hold. 
+
+Observation: Qwen tokenizes words very similarly to gpt2
+
+Full results:
+
+|tokenizer|group|aligned|n_tokens
+|-|-|-|-|
+|bert|concatenative|0.692|2.704|
+||rewritten|0.188|3.024|
+|gpt2|concatenative|0.622|3.064|
+||rewritten|0.314|3.090|
+|gpt2|concatenative|0.636|2.950|
+||rewritten|0.318|2.956|
+
+With one-token words removed:
+
+|tokenizer|group|aligned|n_tokens
+|-|-|-|-|
+|bert|concatenative|0.709|2.746|
+||rewritten|0.202|3.176|
+|gpt2|concatenative|0.636|2.950|
+||rewritten|0.323|2.984|
