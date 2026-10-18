@@ -44,7 +44,7 @@ Full results:
 ||rewritten|0.188|3.024|
 |gpt2|concatenative|0.622|3.064|
 ||rewritten|0.314|3.090|
-|gpt2|concatenative|0.636|2.950|
+|qwen|concatenative|0.636|2.950|
 ||rewritten|0.318|2.956|
 
 With one-token words removed:
@@ -53,5 +53,7 @@ With one-token words removed:
 |-|-|-|-|
 |bert|concatenative|0.709|2.746|
 ||rewritten|0.202|3.176|
-|gpt2|concatenative|0.636|2.950|
+|gpt2|concatenative|0.623|3.068|
+||rewritten|0.317|3.107|
+|qwen|concatenative|0.636|2.950|
 ||rewritten|0.323|2.984|
